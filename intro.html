@@ -808,6 +808,43 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+
+    /* Placeholder sections for other nav links */
+    #skills, #projects, #contact {
+      min-height: 100vh;
+      padding: 5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #skills {
+      background: #f2f2f2;
+    }
+
+    #projects {
+      background: #f2f2f2;
+      background-image: url('images/alllg.png');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      position: relative;
+      margin: 100px;
+    }
+
+    /* Dark theme projects background */
+    body.dark-theme #projects {
+      background: #000;
+      background-image: url('images/alldark.png');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    #contact {
+      background: #f2f2f2;
+    }
   </style>
 </head>
 
