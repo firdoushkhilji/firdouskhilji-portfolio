@@ -2,151 +2,245 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firdous | Frontend Developer & UI/UX Designer</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <!-- Pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary-color: #c2ab7a;
-      --secondary-color: #d2bb89;
-      --bg-color: #f2f2f2;
-      --heading-color: #0d0d0d;
-      --text-color: #323232;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
+    html,
     body {
-      background-color: var(--bg-color);
-      /* background-image: url("images/bg.jpg"); */
-      color: var(--text-color);
-      font-family: 'VT323', monospace;
-      margin: 0;
-      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      /* prevent scrolling */
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--heading-color);
-      margin: 0;
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: #f2f2f2;
+      color: #111;
     }
 
-    section {
+    /* Navbar */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: #f2f2f280;
+      /* transparent */
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 14px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #111;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff2fab;
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      /* lock full viewport */
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 2rem 1rem;
-      min-height: 100vh;
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 600;
-      line-height: 1.2;
-      z-index: 1;
-    }
-
-    .heading {
-      font-size: clamp(2.5rem, 10vw, 6rem);
-      font-weight: bold;
-      display: block;
-      margin-top: 0.5rem;
-    }
-
-    a img {
-      width: 90%;
-      max-width: 500px;
-      height: auto;
-      margin-top: -20px;
       position: relative;
-      transition: transform 0.3s ease, z-index 0.3s ease;
-      border-radius: 0.5rem;
+      padding-top: 70px;
+      /* navbar space */
     }
 
-    a img:hover {
+    #home h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    #home h2 {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      margin: 0.5rem 0 1rem;
+    }
+
+    #intro img {
+      max-width: 600px;
+      width: 80%;
+      height: auto;
+      margin: 0px auto 20px;
+      display: block;
+      transition: all 0.4s ease;
+    }
+
+    #intro img:hover {
       transform: scale(1.05);
-      z-index: 10;
     }
 
-    h4 {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      font-weight: 400;
+    #home .btn {
       margin-top: 1rem;
-      z-index: 1;
+      display: inline-block;
+      background: #ff2fab;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      font-size: 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
     }
 
-    /* Mobile tweaks */
-    @media (max-width: 768px) {
-      section {
-        padding: 1.5rem 1rem;
-        gap: 1rem;
-      }
+    #home .btn:hover {
+      background: #111;
+      color: #fff;
+      transform: scale(1.05);
+    }
 
-      h1 {
-        font-size: 2rem;
-      }
+    /* Bottom Content */
+    .home-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      font-size: 10px;
+      text-align: center;
+      gap: 1rem;
+    }
 
-      .heading {
-        font-size: 2.5rem;
-      }
+    .dino {
+      width: 100px;
+    }
 
-      a img {
-        margin-top: -10px;
-        max-width: 350px;
-      }
+    /* Clouds */
+    .cloud {
+      position: absolute;
+      width: 200px;
+      /* bigger cloud size */
+      opacity: 0.8;
+      z-index: -1;
+    }
 
-      h4 {
-        font-size: 1.2rem;
-      }
+    .cloud.zero {
+      top: 0%;
+      left: 35%;
+    }
+
+    .cloud.one {
+      top: 15%;
+      left: 5%;
+    }
+
+    .cloud.two {
+      top: 8%;
+      right: 5%;
+    }
+
+    .cloud.three {
+      top: 15%;
+      left: 55%;
+      transform: translateX(-50%);
+    }
+
+    .cloud.four {
+      top: 45%;
+      left: 15%;
+    }
+
+    .cloud.five {
+      top: 58%;
+      right: 25%;
+    }
+
+    .cloud.six {
+      top: 65%;
+      left: 29%;
+    }
+
+    .cloud.seven {
+      top: 45%;
+      right: 7%;
     }
   </style>
 </head>
 
 <body>
-  <section>
-    <h1>
-      Hi, I’m Firdous Khilji and<br>
-      Welcome to my..<br>
-      <span class="heading">P o r t f o l i o</span>
-    </h1>
+  <!-- NAV -->
+  <!-- <nav>
+    <div class="logo">FIRDOUS</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav> -->
 
-    <!-- Image link to homepage -->
-    <a href="home.html">
-      <img src="images/Portfolio.png" alt="Firdous Khilji" id="profile-img" />
-    </a>
+  <!-- HERO -->
+  <section id="home">
+    <h2>Hi, I'm Firdous Khilji</h2>
+    <h2>and Welcome to my</h2>
+    <h1>Portfolio</h1>
 
-    <h4>Front End Developer / UI UX Designer</h4>
+    <!-- Intro Image -->
+    <section id="intro">
+      <a href="portfolio.html">
+        <img src="images/folder.png" alt="Firdous Portfolio Intro">
+      </a>
+    </section>
+    <h2>Front-end Developer &</h2>
+    <h2>UI UX Designer</h2>
+
+
+    <!-- Clouds -->
+    <img src="images/cloud1.png" class="cloud zero" alt="cloud">
+    <img src="images/cloud1.png" class="cloud one" alt="cloud">
+    <img src="images/cloud1.png" class="cloud two" alt="cloud">
+    <img src="images/cloud1.png" class="cloud three" alt="cloud">
+    <img src="images/cloud1.png" class="cloud four" alt="cloud">
+    <img src="images/cloud1.png" class="cloud five" alt="cloud">
+    <img src="images/cloud1.png" class="cloud six" alt="cloud">
+    <img src="images/cloud1.png" class="cloud seven" alt="cloud">
+
+    <!-- Bottom Row -->
+    <div class="home-bottom">
+      <p>Crafting sleek, responsive<br>websites with clean code.</p>
+      <!-- Dino -->
+      <!-- <img src="images/dino.png" alt="dino" class="dino"> -->
+      <p>Designing intuitive interfaces<br>where user experience comes first.</p>
+    </div>
   </section>
-
-  <!-- Image Hover Script -->
-  <script>
-    const img = document.getElementById("profile-img");
-
-    img.addEventListener("mouseover", () => {
-      img.src = "images/hover.png";
-      img.style.zIndex = "10";
-    });
-
-    img.addEventListener("mouseout", () => {
-      img.src = "images/Portfolio.png";
-      img.style.zIndex = "0";
-    });
-  </script>
 </body>
 
 </html>
