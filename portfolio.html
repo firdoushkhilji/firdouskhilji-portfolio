@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firdous | Portfolio</title>
+
+  <!-- Pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: #f2f2f2;
+      color: #111;
+      line-height: 1.5;
+      padding: 1rem 5rem;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: #f2f2f280;
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 14px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #111;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff2fab;
+    }
+
+    /* About Section */
+    #about {
+      padding: 5rem 2rem;
+    }
+
+    #about h2 {
+      font-size: 2rem;
+      color: #0047ab;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-container {
+      /* display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem; */
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-info {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about-box {
+      background: #fafafa;
+      padding: 1rem;
+      border-radius: 6px;
+      flex: 1;
+      min-width: 200px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .about-box h3 {
+      font-size: 14px;
+      margin-bottom: 1rem;
+    }
+
+    .about-box ul {
+      list-style: none;
+      padding: 0;
+      font-size: 12px;
+    }
+
+    .about-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-photo {
+      text-align: center;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* WORKS */
+    #works {
+      margin-top: 5rem;
+      padding: 5rem 2rem;
+    }
+
+    .works-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 2px solid #f2c200;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .categories {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .categories a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      color: #111;
+      position: relative;
+    }
+
+    .categories a.active {
+      color: #f2c200;
+    }
+
+    .categories a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #f2c200;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem 3rem;
+    }
+
+    .work-item {
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .work-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .work-item:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">FIRDOUS</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <!-- Left (Text + Info) -->
+      <div class="about-text">
+        <p>
+          I'm a Front-end developer with solid semantic (HTML, CSS, and vanilla JavaScript) skills,
+          experienced working with Figma. Since I started learning coding I built several projects that 
+          sharpened my skills in frontend. Participating in multiple coding challenges made me develop 
+          a strong designer eye and solidify my knowledge in UX/UI fundamentals.
+        </p>
+
+        <div class="about-info">
+          <!-- Education -->
+          <div class="about-box">
+            <h3>Education</h3>
+            <ul>
+              <li>– 2021 <br> Delhi Public School, Vadodara</li>
+              <li>– 2021–2025 <br> Navrachana University, Vadodara</li>
+            </ul>
+          </div>
+
+          <!-- Expertise -->
+          <div class="about-box">
+            <h3>Expertise</h3>
+            <ul>
+              <li>Figma</li>
+              <li>HTML / CSS</li>
+              <li>JavaScript</li>
+              <li>ReactJS</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right (Photo) -->
+      <!-- <div class="about-photo">
+        <img src="images/profile.jpg" alt="Firdous">
+      </div> -->
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works">
+    <div class="works-header">
+      <h2 class="section-title">WORK</h2>
+      <div class="categories">
+        <a href="#" class="active">ALL WORKS</a>
+        <a href="#">ILLUSTRATION</a>
+        <a href="#">BRANDING</a>
+        <a href="#">GRAPHIC</a>
+        <a href="#">WEB</a>
+        <a href="#">PRINT</a>
+      </div>
+    </div>
+
+    <div class="works-grid">
+      <div class="work-item"><img src="images/work1.png" alt="Work 1"></div>
+      <div class="work-item"><img src="images/work2.png" alt="Work 2"></div>
+      <div class="work-item"><img src="images/work3.png" alt="Work 3"></div>
+      <div class="work-item"><img src="images/work4.png" alt="Work 4"></div>
+    </div>
+  </section>
+</body>
+</html>

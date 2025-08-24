@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #c2ab7a;
+      --secondary-color: #d2bb89;
+      --bg-color: #f2f2f2;
+      --heading-color: #0d0d0d;
+      --text-color: #323232;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      /* background-image: url("images/bg.jpg"); */
+      color: var(--text-color);
+      font-family: 'VT323', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--heading-color);
+      margin: 0;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      z-index: 1;
+    }
+
+    .heading {
+      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-weight: bold;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    a img {
+      width: 90%;
+      max-width: 500px;
+      height: auto;
+      margin-top: -20px;
+      position: relative;
+      transition: transform 0.3s ease, z-index 0.3s ease;
+      border-radius: 0.5rem;
+    }
+
+    a img:hover {
+      transform: scale(1.05);
+      z-index: 10;
+    }
+
+    h4 {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 400;
+      margin-top: 1rem;
+      z-index: 1;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      section {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .heading {
+        font-size: 2.5rem;
+      }
+
+      a img {
+        margin-top: -10px;
+        max-width: 350px;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>
+      Hi, I’m Firdous Khilji and<br>
+      Welcome to my..<br>
+      <span class="heading">P o r t f o l i o</span>
+    </h1>
+
+    <!-- Image link to homepage -->
+    <a href="home.html">
+      <img src="images/Portfolio.png" alt="Firdous Khilji" id="profile-img" />
+    </a>
+
+    <h4>Front End Developer / UI UX Designer</h4>
+  </section>
+
+  <!-- Image Hover Script -->
+  <script>
+    const img = document.getElementById("profile-img");
+
+    img.addEventListener("mouseover", () => {
+      img.src = "images/hover.png";
+      img.style.zIndex = "10";
+    });
+
+    img.addEventListener("mouseout", () => {
+      img.src = "images/Portfolio.png";
+      img.style.zIndex = "0";
+    });
+  </script>
+</body>
+
+</html>

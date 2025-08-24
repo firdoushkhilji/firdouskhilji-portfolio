@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firdous | Frontend Developer & UI/UX Designer</title>
+
+  <!-- Pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      /* prevent scrolling */
+    }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: #f2f2f2;
+      color: #111;
+    }
+
+    /* Navbar */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      background: #f2f2f280;
+      /* transparent */
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 14px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #111;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff2fab;
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      /* lock full viewport */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding-top: 70px;
+      /* navbar space */
+    }
+
+    #home h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    #home h2 {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      margin: 0.5rem 0 1rem;
+    }
+
+    #intro img {
+      max-width: 600px;
+      width: 80%;
+      height: auto;
+      margin: 0px auto 20px;
+      display: block;
+      transition: all 0.4s ease;
+    }
+
+    #intro img:hover {
+      transform: scale(1.05);
+    }
+
+    #home .btn {
+      margin-top: 1rem;
+      display: inline-block;
+      background: #ff2fab;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      font-size: 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    #home .btn:hover {
+      background: #111;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Bottom Content */
+    .home-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      font-size: 10px;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .dino {
+      width: 100px;
+    }
+
+    /* Clouds */
+    .cloud {
+      position: absolute;
+      width: 200px;
+      /* bigger cloud size */
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .cloud.zero {
+      top: 0%;
+      left: 35%;
+    }
+
+    .cloud.one {
+      top: 15%;
+      left: 5%;
+    }
+
+    .cloud.two {
+      top: 8%;
+      right: 5%;
+    }
+
+    .cloud.three {
+      top: 15%;
+      left: 55%;
+      transform: translateX(-50%);
+    }
+
+    .cloud.four {
+      top: 45%;
+      left: 15%;
+    }
+
+    .cloud.five {
+      top: 58%;
+      right: 25%;
+    }
+
+    .cloud.six {
+      top: 65%;
+      left: 29%;
+    }
+
+    .cloud.seven {
+      top: 45%;
+      right: 7%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <!-- <nav>
+    <div class="logo">FIRDOUS</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav> -->
+
+  <!-- HERO -->
+  <section id="home">
+    <h2>Hi, I'm Firdous Khilji</h2>
+    <h2>and Welcome to my</h2>
+    <h1>Portfolio</h1>
+
+    <!-- Intro Image -->
+    <section id="intro">
+      <a href="portfolio.html">
+        <img src="images/folder.png" alt="Firdous Portfolio Intro">
+      </a>
+    </section>
+    <h2>Front-end Developer &</h2>
+    <h2>UI UX Designer</h2>
+
+
+    <!-- Clouds -->
+    <img src="images/cloud1.png" class="cloud zero" alt="cloud">
+    <img src="images/cloud1.png" class="cloud one" alt="cloud">
+    <img src="images/cloud1.png" class="cloud two" alt="cloud">
+    <img src="images/cloud1.png" class="cloud three" alt="cloud">
+    <img src="images/cloud1.png" class="cloud four" alt="cloud">
+    <img src="images/cloud1.png" class="cloud five" alt="cloud">
+    <img src="images/cloud1.png" class="cloud six" alt="cloud">
+    <img src="images/cloud1.png" class="cloud seven" alt="cloud">
+
+    <!-- Bottom Row -->
+    <div class="home-bottom">
+      <p>Crafting sleek, responsive<br>websites with clean code.</p>
+      <!-- Dino -->
+      <!-- <img src="images/dino.png" alt="dino" class="dino"> -->
+      <p>Designing intuitive interfaces<br>where user experience comes first.</p>
+    </div>
+  </section>
+</body>
+
+</html>

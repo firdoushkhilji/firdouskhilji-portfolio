@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browser Modal with Tabs</title>
+  <style>
+    :root {
+      --primary-color: #c2ab7a;
+      --secondary-color: #d2bb89;
+      --bg-color: #f2f2f2;
+      --heading-color: #0d0d0d;
+      --text-color: #323232;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-color);
+      font-family: 'VT323', monospace;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+    }
+
+    .modal-browser {
+      width: 90%;
+      max-width: 700px;
+      background: #fdf6e3;
+      border: 4px solid #000;
+      border-radius: 15px;
+      box-shadow: 6px 6px 0 #000;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      background: #fdf6e3;
+      border-bottom: 4px solid #000;
+      padding: 10px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-header .tab {
+      padding: 5px 20px;
+      background: transparent;
+      border: 2px solid transparent;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+
+    .modal-header .tab.active {
+      border: 2px solid #000;
+      border-bottom: 0;
+      background: #fff;
+    }
+
+    .modal-content {
+      padding: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .modal-section {
+      display: none;
+    }
+
+    .modal-section.active {
+      display: block;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="modal" id="modal">
+  <div class="modal-browser">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-header">
+      <button class="tab active" onclick="showTab('intro')">Intro</button>
+      <button class="tab" onclick="showTab('projects')">Projects</button>
+      <button class="tab" onclick="showTab('email')">Email</button>
+      <button class="tab" onclick="showTab('game')">Game</button>
+    </div>
+    <div class="modal-content">
+      <div class="modal-section active" id="tab-intro">
+        <p>I'm a front-end developer who loves designing and building fun, creative websites. I enjoy working with different people and bringing unique ideas to life.</p>
+      </div>
+      <div class="modal-section" id="tab-projects">
+        <p>These are my projects. I love building clean and interactive interfaces with code.</p>
+      </div>
+      <div class="modal-section" id="tab-email">
+        <p>You can contact me at example@email.com</p>
+      </div>
+      <div class="modal-section" id="tab-game">
+        <p>Here's a fun little project: I built a mini game with HTML, CSS, and JS.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.modal-section');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    sections.forEach(section => section.classList.remove('active'));
+
+    document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+    document.getElementById(`tab-${tabId}`).classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

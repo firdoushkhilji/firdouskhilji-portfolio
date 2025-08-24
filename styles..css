@@ -1,0 +1,31 @@
+/* styles.css */
+
+:root {
+    --primary-color: #c2ab7a;
+    --secondary-color: #d2bb89;
+    --bg-color: #f2f2f2;
+    --heading-color: #0d0d0d;
+    --text-color: #323232;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+  
+ 
+  h1 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(2rem, 6vw, 68px);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  

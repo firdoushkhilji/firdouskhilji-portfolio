@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c2ab7a;
+            --secondary-color: #d2bb89;
+            --bg-color: #f2f2f2;
+            --heading-color: #0d0d0d;
+            --text-color: #323232;
+        }
+        body {
+            font-family: 'VT323', monospace;
+            background: #f2f2f2;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background-color: rgba(31, 31, 31, 0.1);
+            /* higher opacity black */
+            backdrop-filter: blur(6px);
+            /* reduce blur for less grey-ish look */
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* if you want status bar to the right */
+            padding: 0 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: #fff;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .top-navbar .logo {
+            height: 22px;
+            margin-right: 1rem;
+        }
+
+
+
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #333;
+            margin-left: auto;
+            /* Pushes it to the right */
+        }
+
+
+        .status-item {
+            white-space: nowrap;
+        }
+
+
+        .top-navbar .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-navbar .nav-links a {
+            color: var(--heading-color);
+            text-decoration: none;
+            padding: 5px;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .top-navbar .nav-links a:hover {
+            border-bottom: 2px solid var(--heading-color);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .projects-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-window {
+            width: 300px;
+            border: 2px solid #000;
+            background: #fff;
+            box-shadow: 6px 6px 0 #000;
+        }
+
+        .project-titlebar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 12px;
+            background: #e0e0e0;
+            border-bottom: 2px solid #000;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        .red {
+            background: #ff5f57;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #28c840;
+        }
+
+        .file-name {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        .project-content img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .project-body {
+            padding: 16px;
+        }
+
+        .project-body h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .view-btn {
+            border: 2px solid #000;
+            background: none;
+            padding: 6px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .view-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <!-- Left: Logo -->
+        <img src="images/tab-icons/cat.png" alt="Logo" class="logo">
+
+        <!-- Middle: Navigation Links -->
+        <!-- Middle: Navigation Links -->
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="#" onclick="openModal('modal1')">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="#" onclick="openModal('modal3')">Find Me</a>
+        </div>
+
+
+        <!-- Right: Status Bar -->
+        <div class="status-bar">
+            <span class="status-item">🔊</span>
+            <span class="status-item">📶</span>
+            <span class="status-item">🔋 96%</span>
+            <span class="status-item" id="datetime">Mon 2 Jun 10:45 AM</span>
+        </div>
+    </div>
+    <h1>Projects</h1>
+    <div class="projects-container">
+        <div class="project-window">
+            <div class="project-titlebar">
+                <div class="window-buttons">
+                    <div class="window-btn red"></div>
+                    <div class="window-btn yellow"></div>
+                    <div class="window-btn green"></div>
+                </div>
+                <div class="file-name">2020-04-06-project.html</div>
+            </div>
+            <div class="project-content">
+                <img src="https://via.placeholder.com/300x160" alt="Project 1">
+                <div class="project-body">
+                    <h2>Possimus</h2>
+                    <p>Officia sit rerum quam fugiat sit molestiae...</p>
+                    <button class="view-btn">View project</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-window">
+            <div class="project-titlebar">
+                <div class="window-buttons">
+                    <div class="window-btn red"></div>
+                    <div class="window-btn yellow"></div>
+                    <div class="window-btn green"></div>
+                </div>
+                <div class="file-name">2023-04-06-project.html</div>
+            </div>
+            <div class="project-content">
+                <img src="https://via.placeholder.com/300x160" alt="Project 2">
+                <div class="project-body">
+                    <h2>Dolorum Ullam Totam</h2>
+                    <p>Consequatur consequatur et quibusdam...</p>
+                    <button class="view-btn">View project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('datetime').textContent = now.toLocaleString('en-US', options);
+        }
+        setInterval(updateDateTime, 60000);
+        updateDateTime();
+    </script>
+</body>
+
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'VT323', monospace;
+            background: #f2f2f2;
+            padding: 40px;
+            margin: 0;
+        }
+         .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background-color: rgba(31, 31, 31, 0.1);
+            /* higher opacity black */
+            backdrop-filter: blur(6px);
+            /* reduce blur for less grey-ish look */
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* if you want status bar to the right */
+            padding: 0 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: #fff;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .top-navbar .logo {
+            height: 22px;
+            margin-right: 1rem;
+        }
+
+
+
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #333;
+            margin-left: auto;
+            /* Pushes it to the right */
+        }
+
+
+        .status-item {
+            white-space: nowrap;
+        }
+
+
+        .top-navbar .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-navbar .nav-links a {
+            color: var(--heading-color);
+            text-decoration: none;
+            padding: 5px;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .top-navbar .nav-links a:hover {
+            border-bottom: 2px solid var(--heading-color);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .projects-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .project-window {
+            flex: 0 0 1200px;
+            /* Wider project cards */
+            border: 2px solid #000;
+            background: #fff;
+            box-shadow: 6px 6px 0 #000;
+            scroll-snap-align: start;
+            min-height: 700px;
+        }
+
+
+
+
+        .project-titlebar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 12px;
+            background: #e0e0e0;
+            border-bottom: 2px solid #000;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        .red {
+            background: #ff5f57;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #28c840;
+        }
+
+        .file-name {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        .project-content img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .project-body {
+            padding: 16px;
+        }
+
+        .project-body h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-body p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .view-btn {
+            border: 2px solid #000;
+            background: none;
+            padding: 6px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .view-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <!-- Left: Logo -->
+        <img src="images/tab-icons/cat.png" alt="Logo" class="logo">
+
+        <!-- Middle: Navigation Links -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#" onclick="openModal('modal1')">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="#" onclick="openModal('modal3')">Find Me</a>
+        </div>
+
+        <!-- Right: Status Bar -->
+        <div class="status-bar">
+            <span class="status-item">🔊</span>
+            <span class="status-item">📶</span>
+            <span class="status-item">🔋 96%</span>
+            <span class="status-item" id="datetime">Mon 2 Jun 10:45 AM</span>
+        </div>
+    </div>
+    <h1>Projects</h1>
+    <div class="projects-container">
+        <div class="project-window">
+            <div class="project-titlebar">
+                <div class="window-buttons">
+                    <div class="window-btn red"></div>
+                    <div class="window-btn yellow"></div>
+                    <div class="window-btn green"></div>
+                </div>
+                <div class="file-name">2020-04-06-project.html</div>
+            </div>
+            <div class="project-content">
+                <img src="https://via.placeholder.com/300x160" alt="Project 1">
+                <div class="project-body">
+                    <h2>Possimus</h2>
+                    <p>Officia sit rerum quam fugiat sit molestiae...</p>
+                    <button class="view-btn">View project</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-window">
+            <div class="project-titlebar">
+                <div class="window-buttons">
+                    <div class="window-btn red"></div>
+                    <div class="window-btn yellow"></div>
+                    <div class="window-btn green"></div>
+                </div>
+                <div class="file-name">2023-04-06-project.html</div>
+            </div>
+            <div class="project-content">
+                <img src="https://via.placeholder.com/300x160" alt="Project 2">
+                <div class="project-body">
+                    <h2>Dolorum Ullam Totam</h2>
+                    <p>Consequatur consequatur et quibusdam...</p>
+                    <button class="view-btn">View project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> -->
